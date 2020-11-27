@@ -11,9 +11,9 @@ jobs:
     steps:
     - name: Imprimir
       id: imprimir
-        env:
-          MI_VARIABLE: Hola mundisimo mundial hello world
-        run: echo "::set-output name=respuesta::${MI_VARIABLE}"
+      env:
+        MI_VARIABLE: Hola mundisimo mundial hello world
+      run: echo "::set-output name=respuesta::${MI_VARIABLE}"
   Second-job:
     needs: Hello-world
     name: My second job on github actions
