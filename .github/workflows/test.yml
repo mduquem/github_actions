@@ -6,20 +6,19 @@ jobs:
   Hello-world:
     name: Mi primer jobe
     runs-on: ubuntu-latest
-    outputs: 
+    outputs:
       salida: ${{ steps.imprimir.outputs.respuesta }}
     steps:
-    - name: Imprimir
-      id: imprimir
-      env:
-        MI_VARIABLE: Hola mundisimo mundial hello world
-      run: echo "::set-output name=respuesta::${MI_VARIABLE}"
+      - name: Imprimir
+        id: imprimir
+        env:
+          MI_VARIABLE: Hola mundisimo mundial hello world
+        run: echo "::set-output name=respuesta::${MI_VARIABLE}"
   Second-job:
     needs: Hello-world
     name: My second job on github actions
     runs-on: ubuntu-latest
     steps:
-    - name: Imprimir:
-      id: imprimir
-      run: echo ${{ needs.Hello-world.outputs.salida }}
-
+      - name: Imprimir
+        id: imprimir
+        run: echo ${{ needs.Hello-world.outputs.salida }}
