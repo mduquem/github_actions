@@ -9,7 +9,7 @@ jobs:
     outputs: 
       salida: ${{ steps.imprimir.outputs.respuesta }}
     steps:
-      - name: Imprimir
+    - name: Imprimir
       id: imprimir
         env:
           MI_VARIABLE: Hola mundisimo mundial hello world
